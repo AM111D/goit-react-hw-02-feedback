@@ -12,7 +12,7 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <h2>Please leave feedback</h2>
+      {/* <h2>Please leave feedback</h2> */}
       <FeedBack />
     </div>
   );

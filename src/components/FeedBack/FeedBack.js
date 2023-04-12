@@ -9,12 +9,18 @@ class FeedBack extends Component {
 
   render() {
     return (
-      <div className='feedBack'>
-        <button type="button" >Good</button>
-        <button type="button" >Neutral</button>
-        <button type="button" >Bad</button>
+      <div className="feedBack">
+        <button type="button">Good</button>
+        <button type="button">Neutral</button>
+        <button type="button">Bad</button>
+        <h4>Statistics</h4>
       </div>
-      <h2>Statistics</h2>
+
+      <ul>
+        <li>Good:<span>{this.state.good}</span></li>
+        <li>Neutral:<span>{this.state.neutral}</span></li>
+        <li>Bad:<span>{this.state.bad}</span></li>
+      </ul>
     );
   }
 }
