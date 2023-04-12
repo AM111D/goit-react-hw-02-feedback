@@ -7,20 +7,64 @@ class FeedBack extends Component {
     bad: 0,
   };
 
+  feedBackIsGood = () => {
+    this.setState(prevState => ({
+      good: prevState.good + 1,
+    }));
+  };
+
+  feedBackIsNeutral = () => {
+    this.setState(prevState => ({
+      neutral: prevState.neutral + 1,
+    }));
+  };
+
+  feedBackIsBad = () => {
+    this.setState(prevState => ({
+      bad: prevState.bad + 1,
+    }));
+  };
+
+  countTotalFeedback = () => {
+    const { good, neutral, bad } = this.state;
+    const totalFeedback = good + neutral + bad;
+    return totalFeedback;
+  };
+
+  // countPositiveFeedbackPercentage = () => {}
+
   render() {
     return (
-      <div className="feedBack">
-        <button type="button">Good</button>
-        <button type="button">Neutral</button>
-        <button type="button">Bad</button>
-        <h4>Statistics</h4>
-      </div>
+      <>
+        <h2>Please leave feedback</h2>
+        <div className="feedBack">
+          <button type="button" onClick={this.feedBackIsGood}>
+            Good
+          </button>
+          <button type="button" onClick={this.feedBackIsNeutral}>
+            Neutral
+          </button>
+          <button type="button" onClick={this.feedBackIsBad}>
+            Bad
+          </button>
+          <h4>Statistics</h4>
+        </div>
 
-      <ul>
-        <li>Good:<span>{this.state.good}</span></li>
-        <li>Neutral:<span>{this.state.neutral}</span></li>
-        <li>Bad:<span>{this.state.bad}</span></li>
-      </ul>
+        <ul>
+          <li>
+            Good:<span>{this.state.good}</span>
+          </li>
+          <li>
+            Neutral:<span>{this.state.neutral}</span>
+          </li>
+          <li>
+            Bad:<span>{this.state.bad}</span>
+          </li>
+          <li>
+            Total:<span>{this.countTotalFeedback()}</span>
+          </li>
+        </ul>
+      </>
     );
   }
 }
