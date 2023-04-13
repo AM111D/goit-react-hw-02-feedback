@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Statistics = ({ good, neutral, bad, total, percentage }) => (
   <ul>

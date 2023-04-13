@@ -1,12 +1,19 @@
 // import FeedBack from './FeedBack/FeedBack';
 import React, { Component } from 'react';
 import Statistics from './FeedBack/Statistics ';
+import StatisticsButtons from './FeedBack/StatisticButtons';
 
 class App extends Component {
+  static defaultProps = {
+    initialGood: 0,
+    initialNeutral: 0,
+    initialBad: 0,
+  };
+
   state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
+    good: this.props.initialGood,
+    neutral: this.props.initialNeutral,
+    bad: this.props.initialBad,
   };
 
   handleChenge = option => {
@@ -39,27 +46,10 @@ class App extends Component {
     return (
       <>
         <h2>Please leave feedback</h2>
-        <div className="feedBack">
-          <button
-            type="button"
-            onClick={() => this.handleChenge({ name: 'good' })}
-          >
-            Good
-          </button>
-          <button
-            type="button"
-            onClick={() => this.handleChenge({ name: 'neutral' })}
-          >
-            Neutral
-          </button>
-          <button
-            type="button"
-            onClick={() => this.handleChenge({ name: 'bad' })}
-          >
-            Bad
-          </button>
-          <h4>Statistics</h4>
-        </div>
+
+        <StatisticsButtons />
+
+        <h4>Statistics</h4>
 
         <Statistics
           good={good}
