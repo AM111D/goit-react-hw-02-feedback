@@ -6,16 +6,10 @@ import Notification from "./Notification/Notification";
 
 class App extends Component  {
 
-  static defaultProps = {
-    initialGood: 0,
-    initialNeutral: 0,
-    initialBad: 0
-  };
-
   state = {
-    good: this.props.initialGood,
-    neutral: this.props.initialNeutral,
-    bad: this.props.initialBad
+    good: 0,
+    neutral: 0,
+    bad: 0
   };
 
   handleChenge = (option) => {
